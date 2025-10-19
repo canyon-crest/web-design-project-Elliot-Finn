@@ -91,7 +91,7 @@ a:hover{
 
 @media(max-width:1200px){
     #container{
-        background-color: red;
+        background-color: rgb(204, 190, 255);
         width: 800px;
     }
 }
