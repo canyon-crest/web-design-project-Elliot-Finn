@@ -1,0 +1,8 @@
+/* animations.css — cleaned up minimal placeholder
+   Heavy/experimental animations were removed to avoid breaking the base styles.
+   Kept as a harmless file so the HTML link can remain; primary behavior now lives in styles.css.
+*/
+
+@media (prefers-reduced-motion: reduce){
+  /* Respect user's motion preference; keep this file intentionally minimal. */
+}
