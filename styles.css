@@ -163,30 +163,40 @@ a:hover::after, a:focus::after { transform: scaleX(1); }
   }
 }
 
-/* -------------------- Sidebar (wider, right-aligned, bottom of content) -------------------- */
-/* -------------------- Sidebar (match paragraph width) -------------------- */
+/* -------------------- Sidebar (wider + less chunky) -------------------- */
 #sidebar {
-  line-height: 1.6;
+  float: right;
+  /* wider, but not absurd — scales with container */
+  width: clamp(360px, 48%, 460px);
+  line-height: 1.55;
   background-color: white;
-  width: auto;            /* match paragraph width inside the container */
-  float: none;            /* behave like a full-width block, not a narrow float */
-  clear: both;            /* start below any floated images/paragraphs */
-  margin: 20px 0 0 0;     /* align with paragraphs (no extra left offset) */
-  padding: 20px;          /* same inner comfort as your paragraphs */
+
+  /* slimmer feel */
+  padding: 14px 16px;
+  margin: 16px 0 16px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 12px rgba(12,20,40,0.08);
+
+  /* start below any earlier floats (e.g., images) but still float right */
+  clear: both;
   color: #000;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 6px 16px rgba(12,20,40,0.10);
 }
+
 #sidebar h3 {
-  margin-top: 10px;
-  padding: 5px 8px;
+  margin: 0 0 8px 0;       /* tighter */
+  padding: 4px 10px;       /* slimmer pill */
+  font-size: 0.95rem;      /* slightly smaller heading inside the box */
   color: #000;
   background: linear-gradient(180deg, #f4fbff, #d8f5ff);
   border-radius: 999px;
   border: 1px solid rgba(0,0,0,0.06);
   display: inline-block;
 }
+
+/* keep the text inside the sidebar tight too */
+#sidebar p { margin: 0; }
+
 
 
 /* -------------------- Highlights -------------------- */
