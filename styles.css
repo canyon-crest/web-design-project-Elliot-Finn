@@ -126,7 +126,8 @@ a:hover::after, a:focus::after { transform: scaleX(1); }
 
 #container p > img,
 #pic1,
-#pic2 {
+#pic2,
+#pic3 {
   float: left;
   display: block;
   max-width: 36%;
@@ -146,7 +147,8 @@ a:hover::after, a:focus::after { transform: scaleX(1); }
 @media (prefers-reduced-motion: no-preference) {
   #container p > img:hover,
   #pic1:hover,
-  #pic2:hover { transform: scale(1.03); }
+  #pic2:hover,
+  #pic3:hover { transform: scale(1.03); }
 }
 
 /* Small devices: hide images completely */
@@ -154,27 +156,38 @@ a:hover::after, a:focus::after { transform: scaleX(1); }
   #container img,
   #container p > img,
   #pic1,
-  #pic2 {
+  #pic2,
+  #pic3 {
     display: none !important;
     visibility: hidden;
   }
 }
 
-/* -------------------- Sidebar -------------------- */
+/* -------------------- Sidebar (wider, right-aligned, bottom of content) -------------------- */
+/* -------------------- Sidebar (match paragraph width) -------------------- */
 #sidebar {
-  line-height: 3em;
+  line-height: 1.6;
   background-color: white;
-  width: 250px;
-  float: right;
-  margin: 20px;
-  margin-top: 70px;
+  width: auto;            /* match paragraph width inside the container */
+  float: none;            /* behave like a full-width block, not a narrow float */
+  clear: both;            /* start below any floated images/paragraphs */
+  margin: 20px 0 0 0;     /* align with paragraphs (no extra left offset) */
+  padding: 20px;          /* same inner comfort as your paragraphs */
   color: #000;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(12,20,40,0.10);
 }
 #sidebar h3 {
   margin-top: 10px;
-  padding: 5px;
+  padding: 5px 8px;
   color: #000;
+  background: linear-gradient(180deg, #f4fbff, #d8f5ff);
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: inline-block;
 }
+
 
 /* -------------------- Highlights -------------------- */
 .highlight {
@@ -205,6 +218,11 @@ a:hover::after, a:focus::after { transform: scaleX(1); }
   }
   body, p { margin: 0; padding: 0; }
   p { padding: 20px; }
+
+  /* Sidebar a tad narrower on tablets */
+  #sidebar {
+    width: clamp(260px, 55%, 380px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -217,7 +235,7 @@ a:hover::after, a:focus::after { transform: scaleX(1); }
     padding-inline: 12px;
     box-sizing: border-box;
   }
-  #sidebar { display: none; }
+  #sidebar { display: none; }   /* hides sidebar on small screens */
   h1 { border: none; background: none; box-shadow: none; }
 }
 
@@ -228,5 +246,3 @@ a:hover::after, a:focus::after { transform: scaleX(1); }
     width: auto;
   }
 }
-
-
